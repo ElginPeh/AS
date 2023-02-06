@@ -1,0 +1,52 @@
+﻿@page
+@model ASAssignment.Pages.LoginModel
+@{
+}
+<script src="https://www.google.com/recaptcha/api.js?render=6LcAylMkAAAAAIx88S3o4BWujBh35Vrpab5qKt_E"></script>
+
+<div class="container mt-5">
+
+	<div class="row justify-content-center align-items-center">
+
+		<div class="col-sm-12 col-md-12 col-lg-4">
+			<h1 class="mb-3">Login </h1>
+
+			<form method="post">
+				
+				<div class="mb-3">
+					<label class="form-label" asp-for="LModel.Email">Email Address</label>
+					<input type="Text" asp-for="LModel.Email" class="form-control" />
+					<span asp-validaton-for="LModel.Email" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="LModel.Password">Password</label>
+					<input type="Text" asp-for="LModel.Password" class="form-control" />
+					<span asp-validaton-for="LModel.Password" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3 form-check">
+					<input type="checkbox" asp-for="LModel.RememberMe" class="form-check-input" />
+					<label class="form-check-label" asp-for="LModel.RememberMe">Remember Me?</label>
+				</div>
+				<div class="g-recaptcha" data-sitekey="<6LcAylMkAAAAAIx88S3o4BWujBh35Vrpab5qKt_E>"></div>
+
+				<div class="mb-3">
+					<button type="submit" class="btn btn-primary">Login</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="text-danger">
+    @foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+    {
+        <p>@error.ErrorMessage</p>
+    }
+</div>
+
+<script>
+	function onSubmit(token) {
+		document.getElementById("login-form").submit();
+	}
+</script>

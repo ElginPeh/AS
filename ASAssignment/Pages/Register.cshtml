@@ -1,0 +1,130 @@
+﻿
+@page
+@model ASAssignment.Pages.RegisterModel
+@{
+}
+
+<div class="container mt-5">
+
+	<div class="row justify-content-center align-items-center">
+
+		<div class="col-sm-12 col-md-12 col-lg-4">
+			<h1 class="mb-3">Register </h1>
+
+			<form method="post">
+				<div asp-validation-summary="All" class="text-danger"></div>
+
+@*				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Photo">Upload Photo</label>
+					<input type="file" asp-for="RModel.Photo" class="form-control" accept=".jpg" />
+					<span asp-validation-for="RModel.Photo" class="text-danger"></span>
+				</div>*@
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.FullName">Full Name</label>
+					<input type="Text" asp-for="RModel.FullName" class="form-control" />
+					<span asp-validaton-for="RModel.FullName" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.CreditCard">Credit Card No.</label>
+					<input type="Text" asp-for="RModel.CreditCard" class="form-control" />
+					<span asp-validaton-for="RModel.CreditCard" class="text-danger"></span>
+				</div>
+@*				<div class="row mb-3">
+				<label class="col-sm-2 col-form-label" asp-for="RModel.Gender"></label>
+					<div class="col-sm-10 d-flex align-items-center">
+						<div class="form-check form-check-inline">
+							@Html.RadioButtonFor(m => m.RModel.Gender, "M", new {@class = "form-check-input"})
+							<label class="form-check-label">Male</label>
+						</div>
+						<div class="form-check form-check-inline">
+							@Html.RadioButtonFor(m => m.RModel.Gender, "F", new {@class = "form-check-input"})
+							<label class="form-check-label">Female</label>
+						</div>
+						<span asp-validation-for="RModel.Gender" class="text-danger"></span>
+					</div>
+				</div>*@
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Mobile">Mobile No.</label>
+					<input type="Text" asp-for="RModel.Mobile" class="form-control" />
+					<span asp-validaton-for="RModel.Mobile" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Delivery">Delivery Address</label>
+					<input type="Text" asp-for="RModel.Delivery" class="form-control" />
+					<span asp-validaton-for="RModel.Delivery" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Email">Email Address</label>
+					<input type="email" asp-for="RModel.Email" class="form-control" />
+					<span asp-validaton-for="RModel.Email" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Password">Password</label>
+					<input type="Text" asp-for="RModel.Password" class="form-control" onchange="document.getElementById('password-strength').innerHTML = validatePasswordStrength();" />
+					<span id="password-strength"></span>
+					<span asp-validation-for="RModel.Password" class="text-danger"></span>
+				</div>
+
+				<script>
+					function validatePasswordStrength() {
+						var password = document.getElementById("RModel_Password").value;
+						var strength = 0;
+
+						if (password.length < 10) {
+							return 'Too Short';
+						}
+
+						if (password.match(/\d+/)) {
+							strength += 1;
+						}
+
+						if (password.match(/[a-z]+/)) {
+							strength += 1;
+						}
+
+						if (password.match(/[A-Z]+/)) {
+							strength += 1;
+						}
+
+						if (password.match(/[!#$%^&*]+/)) {
+							strength += 1;
+						}
+
+						switch (strength) {
+							case 0:
+								return 'Too Weak';
+							case 1:
+								return 'Weak';
+							case 2:
+								return 'Moderate';
+							case 3:
+								return 'Strong';
+							case 4:
+								return 'Very Strong';
+						}
+					}
+				</script>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.ConfirmPassword">Confirm Password</label>
+					<input type="Text" asp-for="RModel.ConfirmPassword" class="form-control" />
+					<span asp-validaton-for="RModel.ConfirmPassword" class="text-danger"></span>
+				</div>
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.AboutMe">AboutMe</label>
+					<input type="Text" asp-for="RModel.AboutMe" class="form-control" />
+					<span asp-validation-for="RModel.AboutMe" class="text-danger"></span>
+				</div>
+
+
+				<div class="mb-3">
+					<button type="submit" class="btn btn-primary">Register</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+

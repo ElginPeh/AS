@@ -1,0 +1,15 @@
+﻿@page
+@model ASAssignment.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @Model.FullName</h1>
+    <p>Email: @Model.Email</p>
+    <p>Number: @Model.Number</p>
+@*    <p>CreditCard: @Model.CreditCard</p>*@
+    <p>Delivery: @Model.Delivery</p>
+</div>
+
+<a asp-area="" asp-page="/ChangePassword">Change password</a>
